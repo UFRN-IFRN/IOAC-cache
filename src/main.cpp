@@ -25,7 +25,7 @@ int main(){
 	int *seg = new int[cache->getNumLinhas()];
 	int *conteudo = new int[cache->getNumBlocos() * cache->getTamBloco()];
 
-	bool cheio = false;
+	bool completo = false;
 
 	for(int i = 0; i < cache->getNumLinhas(); i++) {
 		cont[i] = 0;
@@ -37,18 +37,22 @@ int main(){
 		conteudo[i] = rand() % 100;
 	}
 
-	int escolha = 10;
+	int operacao = 10;
 
-	while(escolha != 0) {
-		std::cout << "Escolha 1 para read, 2 para show, 0 para sair: " << std::endl;
-		std::cin >> escolha;
+	while(operacao != 0) {
+		cout << "\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
+		cout << "              1 - read                " << endl;
+		cout << "              2 - show                " << endl;
+		cout << "              0 - sair:               " << endl;
+		cout << "¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬" << endl;
+		cin >> operacao;
 
-		if(escolha == 1) {
+		if(operacao == 1) {
 			if(cache->getMapeamento() == 1) {
 				int palavra;
 
-				std::cout << "Digite a palavra que você deseja buscar: " << std::endl;
-				std::cin >> palavra;
+				cout << "Informe a palavra: ";
+				cin >> palavra;
 
 				if(palavra < 0) return 0;
 				else Direto(cache, palavra, v);
@@ -58,27 +62,26 @@ int main(){
 			else if(cache->getMapeamento() == 2) {
 				int palavra;
 
-				std::cout << "Digite a palavra que você deseja buscar: " << std::endl;
-				std::cin >> palavra;
+				cout << "Informe a palavra: ";
+				cin >> palavra;
 
 				if(palavra < 0) return 0;
-				else totalmenteAssociativo(cache, palavra, v, cont, min, seg, cheio);			
+				else totalmenteAssociativo(cache, palavra, v, cont, min, seg, completo);			
 			}
 
 			else if(cache->getMapeamento() == 3) {
 				int palavra;
 
-				std::cout << "Digite a palavra que você deseja buscar: " << std::endl;
-				std::cin >> palavra;
+				cout << "Informe a palavra: ";
+				cin >> palavra;
 
 				if(palavra < 0)	return 0;
-				else parcialmenteAssociativo(cache, palavra, v, cont, min, seg, cheio);
+				else parcialmenteAssociativo(cache, palavra, v, cont, min, seg, completo);
 			}
 		}
 
-		else if(escolha == 2) {
+		else if(operacao == 2) {
 			if(cache->getMapeamento() !=3) mostraDiretoTotalmenteAssociativo(cache, v, conteudo);
-
 			else if(cache->getMapeamento() == 3) mostraParcialmenteAssociativo(cache, v, conteudo);
 		}
 

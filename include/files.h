@@ -11,13 +11,20 @@
 
 #include "cache.h"
 #include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
+using std::stoi;
 #include <fstream>
+using std::ifstream;
+using std::string;
+using std::getline;
 
 /**
  * @brief Funcao que le arquivo e joga numa variavel do tipo Cache
  * @param file Arquivo
  * @return Uma Cache
  */
-Cache* lerArquivo(std::string file);
+Cache* lerArquivo(string file);
 
 #endif

@@ -8,8 +8,6 @@
  */ 	
 #include "funcoes.h"
 
-//using namespace std;
-
 /**
  * @brief Inicializa Cache
  * @param tamanho Tamanho da Cache
@@ -25,10 +23,10 @@ int* inicializaCache(int tamanho) {
 }
 
 /**
- * @brief      Calcula o maior valor dentro de um ponteiro se for Mapeamento direto ou totalmente associativo
- * @param      cache  The cache
- * @param      c      Ponteiro
- * @return     O maior valor
+ * @brief Calcula o maior valor dentro de um ponteiro se for Mapeamento direto ou totalmente associativo
+ * @param cache Cache
+ * @param c Ponteiro
+ * @return O maior valor
  */ 
 int calculaMaiorDiretoTotalmenteAssociativo(Cache* cache, int* c) {
 	int maior = 0;
@@ -40,12 +38,10 @@ int calculaMaiorDiretoTotalmenteAssociativo(Cache* cache, int* c) {
 }
 
 /**
- * @brief      Calcula o maior valor dentro de um ponteiro se for Mapeamento Parcialmente associativo
- *
- * @param      cache  The cache
- * @param      c      Ponteiro
- *
- * @return     O maior valor
+ * @brief Calcula o maior valor dentro de um ponteiro se for Mapeamento Parcialmente associativo
+ * @param cache Cache
+ * @param c Ponteiro
+ * @return O maior valor
  */
 int calculaMaiorParcialmenteAssociativo(Cache* cache, int* c, int inicioBusca) {
 	int maior = 0;
@@ -57,10 +53,10 @@ int calculaMaiorParcialmenteAssociativo(Cache* cache, int* c, int inicioBusca) {
 }
 
 /**
- * @brief      Calcula o menor valor dentro de um ponteiro se for mapeamento direto ou totalmente associativo
- * @param      cache  The cache
- * @param      c      Ponteiro
- * @return     O menor valor
+ * @brief Calcula o menor valor dentro de um ponteiro se for mapeamento direto ou totalmente associativo
+ * @param cache Cache
+ * @param c Ponteiro
+ * @return O menor valor
  */
 int calculaMenorDiretoTotalmenteAssociativo(Cache* cache, int* c){
 	int menor = c[0];
@@ -76,10 +72,10 @@ int calculaMenorDiretoTotalmenteAssociativo(Cache* cache, int* c){
 }
 
 /**
- * @brief      Calcula o menor valor dentro de um ponteiro se for mapeamento parcialmente associativo
- * @param      cache  The cache
- * @param      c      Ponteiro
- * @return     O menor valor
+ * @brief Calcula o menor valor dentro de um ponteiro se for mapeamento parcialmente associativo
+ * @param  cache Cache
+ * @param c Ponteiro
+ * @return O menor valor
  */
 int calculaMenorParcialmenteAssociativo(Cache* cache, int* c, int inicioBusca) {
 	int menor = c[inicioBusca];
@@ -95,13 +91,11 @@ int calculaMenorParcialmenteAssociativo(Cache* cache, int* c, int inicioBusca) {
 }
 
 /**
- * @brief      Calcula a menor hora dentro de um ponteiro se for mapeamento Totalmente Associativo
- *
- * @param      cache  The cache
- * @param      c      Ponteiro de minutos
- * @param      d      Ponteiro de segundos
- *
- * @return     O local aonde está o menor horário ou horário mais velho
+ * @brief Calcula a menor hora dentro de um ponteiro se for mapeamento Totalmente Associativo
+ * @param cache Cache
+ * @param c Ponteiro de minutos
+ * @param d Ponteiro de segundos
+ * @return O local com menor horario ou horario mais antigo
  */
 int calculaMenorHoraTotalmenteAssociativo(Cache* cache, int* c, int* d) {
 	int menorMin = c[0];
@@ -131,11 +125,11 @@ int calculaMenorHoraTotalmenteAssociativo(Cache* cache, int* c, int* d) {
 }
 
 /**
- * @brief      Calcula a menor hora dentro de um ponteiro se for Mapeamento Parcialmente Associativo
- * @param      cache  The cache
- * @param      c      Ponteiro de minutos
- * @param      d      Ponteiro de segundos
- * @return     O local aonde está o menor horário ou horário mais velho
+ * @brief Calcula a menor hora dentro de um ponteiro se for Mapeamento Parcialmente Associativo
+ * @param cache Cache
+ * @param c Ponteiro de minutos
+ * @param d Ponteiro de segundos
+ * @return O local aonde está o menor horário ou horário mais velho
  */
 int calculaMenorHoraParcialmenteAssociativo(Cache* cache, int* c, int* d, int inicioBusca) {
 	int menorMin = c[inicioBusca];
@@ -165,102 +159,100 @@ int calculaMenorHoraParcialmenteAssociativo(Cache* cache, int* c, int* d, int in
 }
 
 /**
- * @brief      Printa a Cache se for Mapeamento direto ou Totalmente Associativo
- * @param      cache  The cache
- * @param      v      Ponteiro da cache
+ * @brief Mostra a Cache e a Memoria Principal se for Mapeamento direto ou Totalmente Associativo
+ * @param cache Cache
+ * @param v Ponteiro da cache
  */
 void mostraDiretoTotalmenteAssociativo(Cache* cache, int* v, int* conteudo) {
-	std::cout << "CACHE L1" << std::endl;
-	std::cout << "Linha - Bloco - Endereço - Conteúdo" << std::endl;
+	cout << "CACHE L1" << endl;
+	cout << "Linha - Bloco - Endereço - Conteúdo" << endl;
 
 	for(int i = 0; i < cache->getNumLinhas(); i++) {
 		if(v[i] == -1) {
 			for(int j = 0; j < cache->getTamBloco(); j++) {
-				std::cout << i << " - x - x - x" << std::endl; 
+				cout << i << " - x - x - x" << endl; 
 			}
 		}
 
 		else {
 			for(int j = 0; j < cache->getTamBloco(); j++) {
-				std::cout << i << " - " << v[i] << " - " << v[i] * cache->getTamBloco() + j << " - " << conteudo[(v[i] * cache->getTamBloco()) + j] << std::endl;
+				cout << i << " - " << v[i] << " - " << v[i] * cache->getTamBloco() + j << " - " << conteudo[(v[i] * cache->getTamBloco()) + j] << endl;
 			}
 		}
 	}
 
-	std::cout << "\nMEMORIA PRINCIPAL" << std::endl;
-	std::cout << "Bloco - Endereço - Conteúdo" << std::endl;
+	cout << "\nMEMORIA PRINCIPAL" << endl;
+	cout << "Bloco - Endereço - Conteúdo" << endl;
 
 	for(int i = 0; i < cache->getNumBlocos(); i++) {
 		for(int j = 0; j < cache->getTamBloco(); j++) {
-			std::cout << i << " - " << (i * cache->getTamBloco()) + j << " - " << conteudo[(i * cache->getTamBloco()) + j] << std::endl;
+			cout << i << " - " << (i * cache->getTamBloco()) + j << " - " << conteudo[(i * cache->getTamBloco()) + j] << endl;
 		}
 	}
 }
 
 /**
- * @brief      Printa a Cache se for Mapeamento Parcialmente associativo
- * @param      cache  The cache
- * @param      v      Ponteiro da cache
+ * @brief Mostra a Cache e a Memoria Principal se for Mapeamento Parcialmente associativo
+ * @param cache Cache
+ * @param v Ponteiro da cache
  */
 void mostraParcialmenteAssociativo(Cache* cache, int* v, int* conteudo) {
-	std::cout << "CACHE L1" << std::endl;
-	std::cout << "Linha - Bloco - Endereço - Conteúdo" << std::endl;
+	cout << "CACHE L1" << endl;
+	cout << "Linha - Bloco - Endereço - Conteúdo" << endl;
 
 	int linhasPorVia = cache->getNumLinhas() / cache->getNumConjuntos();
 
 	for(int i = 0; i < cache->getNumLinhas(); i++) {
 		if(v[i] == -1) {
 			for(int j = 0; j < cache->getTamBloco(); j++) {
-				std::cout << i % linhasPorVia << " - x - x - x" << std::endl;
+				cout << i % linhasPorVia << " - x - x - x" << endl;
 			}
 		}
 
 		else {
 			for(int j = 0; j < cache->getTamBloco(); j++) {
-				std::cout << i % linhasPorVia << " - " << v[i] << " - " << v[i] * cache->getTamBloco() + j << " - " << conteudo[v[i] * cache->getTamBloco() + j] << std::endl;
+				cout << i % linhasPorVia << " - " << v[i] << " - " << v[i] * cache->getTamBloco() + j << " - " << conteudo[v[i] * cache->getTamBloco() + j] << endl;
 			}
 		}
 	}
 
-	std::cout << "MEMORIA PRINCIPAL" << std::endl;
-	std::cout << "Bloco - Endereço - Conteúdo" << std::endl;
+	cout << "MEMORIA PRINCIPAL" << endl;
+	cout << "Bloco - Endereço - Conteúdo" << endl;
 
 	for(int i = 0; i < cache->getNumBlocos(); i++) {
 		for(int j = 0; j < cache->getTamBloco(); j++) {
-			std::cout << i << " - " << (i * cache->getTamBloco()) + j << " - " << conteudo[(i * cache->getTamBloco()) + j] << std::endl;
+			cout << i << " - " << (i * cache->getTamBloco()) + j << " - " << conteudo[(i * cache->getTamBloco()) + j] << endl;
 		}
 	}
 }
 
 /**
- * @brief      Mapeamento direto
- * @param      cache    The cache
- * @param[in]  palavra  The palavra
- * @param      v        Ponteiro da cache
+ * @brief Mapeamento direto
+ * @param cache A cache
+ * @param palavra A palavra
+ * @param v Ponteiro da cache
  */
 void Direto(Cache* cache, int palavra, int* v) {
 	int bloco = palavra / cache->getTamBloco();
 	int linha = bloco % cache->getNumLinhas();
 
-	if(v[linha] == bloco) std::cout << "HIT: linha " << linha << std::endl;
+	if(v[linha] == bloco) cout << "HIT: linha " << linha << endl;
 	else {
 		v[linha] = bloco;
-		std::cout << "MISS -> alocado na linha " << linha << std::endl;
+		cout << "MISS -> alocado na linha " << linha << endl;
 	}
 }
 
 /**
- * @brief      Mapeamento totalmente associativo
- *
- * @param      cache    The cache
- * @param[in]  palavra  The palavra
- * @param      v        Ponteiro da cache
- * @param      cont     Ponteiro de contadores
- * @param      min      Ponteiro de minutos
- * @param      seg      Ponteiro de segundos
- * @param      cheio    Booleano para dizer se a cache está cheia
- *
- * @return     return 0
+ * @brief Mapeamento totalmente associativo
+ * @param cache A cache
+ * @param palavra A palavra
+ * @param v Ponteiro da cache
+ * @param cont Ponteiro de contadores
+ * @param min Ponteiro de minutos
+ * @param seg Ponteiro de segundos
+ * @param cheio Informa se a cache esta cheia
+ * @return return 0
  */	
 int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min, int* seg, bool &cheio) {	
 	int subs = cache->getPoliticaSubs();
@@ -271,26 +263,26 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 	if(subs == 1) {	
 		int linha = rand() % cache->getNumLinhas();
 
-		if(v[linha] == bloco) std::cout << "HIT: linha " << linha << std::endl;
+		if(v[linha] == bloco) cout << "HIT: linha " << linha << endl;
 		else {
 			v[linha] = bloco;
-			std::cout << "MISS -> alocado na linha " << linha << std::endl;
+			cout << "MISS -> alocado na linha " << linha << endl;
 		}
 	}
 
 	//FIFO
 	else if(subs == 2) {
-		bool jaEsta = false;
+		bool estaCompleta = false;
 
 		for(int i = 0; i < cache->getNumLinhas(); i++) {
 			if(v[i] == bloco) {
-				std::cout << "HIT: linha " << i << std::endl;
-				jaEsta = true;
+				cout << "HIT: linha " << i << endl;
+				estaCompleta = true;
 			}
 		}
 
-		if(!jaEsta) {
-			std::cout << "MISS -> alocado na linha ";
+		if(!estaCompleta) {
+			cout << "MISS -> alocado na linha ";
 
 			int maior = calculaMaiorDiretoTotalmenteAssociativo(cache, cont);
 
@@ -299,14 +291,14 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 
 				if(maior == 0) {
 					v[0] = bloco;
-					std::cout << "0" << std::endl;
+					cout << "0" << endl;
 					return 0;
 				}
 
 				else if(maior != 0) {
 					if(v[j] == -1) {
 						v[j] = bloco;
-						std::cout << j << std::endl;
+						cout << j << endl;
 						if(j == cache->getNumLinhas()-1) cheio = true;
 						return 0;
 					}
@@ -320,7 +312,7 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 					if(cont[i] == maior) {
 						v[i] = bloco;
 						cont[i] = 1;
-						std::cout << i << std::endl;
+						cout << i << endl;
 						return 0;
 					}
 				}				
@@ -330,18 +322,18 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 
 	//LFU
 	else if(subs == 3) {
-		bool jaEsta = false;
+		bool estaCompleta = false;
 
 		for(int i = 0; i < cache->getNumLinhas(); i++) {
 			if(v[i] == bloco) {
-				std::cout << "HIT: linha " << i << std::endl;
-				jaEsta = true;
+				cout << "HIT: linha " << i << endl;
+				estaCompleta = true;
 				cont[i] += 1;
 			}
 		}
 
-		if(!jaEsta) {
-			std::cout << "MISS -> alocado na linha ";
+		if(!estaCompleta) {
+			cout << "MISS -> alocado na linha ";
 
 			int menor = calculaMenorDiretoTotalmenteAssociativo(cache, cont);
 
@@ -350,7 +342,7 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 					if(v[j] == -1) {
 						v[j] = bloco;
 						cont[j] += 1;
-						std::cout << j << std::endl;
+						cout << j << endl;
 						if(j == cache->getNumLinhas()-1) cheio = true;
 						return 0;
 					}
@@ -375,7 +367,7 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 						if(cont[i] == menor) {
 							v[i] = bloco;
 							cont[i] = 1;
-							std::cout << i << std::endl;
+							cout << i << endl;
 							return 0;
 						}
 					}
@@ -384,7 +376,7 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 				else if(aux == 1) {
 					v[aux2] = bloco;
 					cont[aux2] = 1;
-					std::cout << aux2 << std::endl;
+					cout << aux2 << endl;
 					return 0;
 				}
 			}
@@ -393,12 +385,12 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 
 	//LRU
 	else if(subs == 4) {
-		bool jaEsta = false;
+		bool estaCompleta = false;
 
 		for(int i = 0; i < cache->getNumLinhas(); i++) {
 			if(v[i] == bloco) {
-				std::cout << "HIT: linha " << i << std::endl;
-				jaEsta = true;
+				cout << "HIT: linha " << i << endl;
+				estaCompleta = true;
 
 				time_t rawtime1;
 			    struct tm* timeinfo;
@@ -416,8 +408,8 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 			}
 		}
 
-		if(!jaEsta) {
-			std::cout << "MISS -> alocado na linha ";
+		if(!estaCompleta) {
+			cout << "MISS -> alocado na linha ";
 
 			int menor = calculaMenorHoraTotalmenteAssociativo(cache, min, seg);
 
@@ -440,7 +432,7 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 					    min[j] = stoi(buffer1);
 					    seg[j] = stoi(buffer);
 
-						std::cout << j << std::endl;
+						cout << j << endl;
 
 						if(j == cache->getNumLinhas()-1) cheio = true;
 
@@ -468,7 +460,7 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 			    min[menor] = stoi(buffer1);
 			    seg[menor] = stoi(buffer);
 
-				std::cout << menor << std::endl;
+				cout << menor << endl;
 
 				return 0;				
 			}
@@ -479,17 +471,15 @@ int totalmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min
 }
 
 /**
- * @brief      Mapeamento parcialmente associativo
- *
- * @param      cache    The cache
- * @param[in]  palavra  The palavra
- * @param      v        Ponteiro da cache
- * @param      cont     Ponteiro de contadores
- * @param      min      Ponteiro de minutos
- * @param      seg      Ponteiro de segundos
- * @param      cheio    Booleano para dizer se a cache está cheia
- *
- * @return     return 0
+ * @brief Mapeamento parcialmente associativo
+ * @param cache A cache
+ * @param palavra A palavra
+ * @param v Ponteiro da cache
+ * @param cont Ponteiro de contadores
+ * @param min Ponteiro de minutos
+ * @param seg Ponteiro de segundos
+ * @param cheio Informa se a cache esta cheia
+ * @return return 0
  */
 int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* min, int* seg, bool &cheio) {
 	int subs = cache->getPoliticaSubs();
@@ -506,10 +496,10 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 
 		for(int i = 0; i < qtVias; i++) {
 			if(via == i) {
-				if(v[linha + linhasPorVia*via] == bloco) std::cout << "HIT: via " << via << " - Linha: " << linha << std::endl;
+				if(v[linha + linhasPorVia*via] == bloco) cout << "HIT: via " << via << " - Linha: " << linha << endl;
 				else {
 					v[linha + linhasPorVia*via] = bloco;
-					std::cout << "HIT: via " << via << " - Linha: " << linha << std::endl;
+					cout << "HIT: via " << via << " - Linha: " << linha << endl;
 				}
 			}
 		}
@@ -517,24 +507,24 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 
 	//FIFO
 	else if(subs == 2) {
-		bool jaEsta = false;
+		bool estaCompleta = false;
 
 		for(int i = 0; i < cache->getNumLinhas(); i++) {
 			if(v[i] == bloco) {
-				std::cout << "HIT: Via: " << i / linhasPorVia << " - Linha: " << i % linhasPorVia << std::endl;
-				jaEsta = true;
+				cout << "HIT: Via: " << i / linhasPorVia << " - Linha: " << i % linhasPorVia << endl;
+				estaCompleta = true;
 			}
 		}
 
-		if(!jaEsta) {
-			std::cout << "MISS -> alocado na via: " << via << " - Linha: ";
+		if(!estaCompleta) {
+			cout << "MISS -> alocado na via: " << via << " - Linha: ";
 
 			for(int j = via*linhasPorVia; j < ((via*linhasPorVia) + linhasPorVia); j++) {
 				cont[j] += 1;
 
 				if(v[j] == -1) {
 					v[j] = bloco;
-					std::cout << j % linhasPorVia << std::endl;
+					cout << j % linhasPorVia << endl;
 					if(j == ((via*linhasPorVia) + linhasPorVia)-1) cheio = true;
 					return 0;
 				}
@@ -547,7 +537,7 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 					if(cont[i] == maior) {
 						v[i] = bloco;
 						cont[i] = 1;
-						std::cout << i % linhasPorVia << std::endl;
+						cout << i % linhasPorVia << endl;
 						return 0;
 					}
 				}				
@@ -557,24 +547,24 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 
 	//LFU
 	else if(subs == 3) {
-		bool jaEsta = false;
+		bool estaCompleta = false;
 
 		for(int i = 0; i < cache->getNumLinhas(); i++) {
 			if(v[i] == bloco) {
-				std::cout << "HIT: Via: " << i / linhasPorVia << " - Linha: " << i % linhasPorVia << std::endl;
-				jaEsta = true;
+				cout << "HIT: Via: " << i / linhasPorVia << " - Linha: " << i % linhasPorVia << endl;
+				estaCompleta = true;
 				cont[i] += 1;
 			}
 		}
 
-		if(!jaEsta) {
-			std::cout << "MISS -> alocado na via: " << via << " - Linha: ";
+		if(!estaCompleta) {
+			cout << "MISS -> alocado na via: " << via << " - Linha: ";
 
 			for(int j = via*linhasPorVia; j < ((via*linhasPorVia) + linhasPorVia); j++) {
 				if(v[j] == -1) {
 					v[j] = bloco;
 					cont[j] += 1;
-					std::cout << j % linhasPorVia << std::endl;
+					cout << j % linhasPorVia << endl;
 					if(j == ((via*linhasPorVia) + linhasPorVia)-1) cheio = true;
 					return 0;
 				}
@@ -597,7 +587,7 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 						if(cont[i] == menor) {
 							v[i] = bloco;
 							cont[i] = 1;
-							std::cout << i % linhasPorVia << std::endl;
+							cout << i % linhasPorVia << endl;
 							return 0;
 						}
 					}
@@ -606,7 +596,7 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 				else if(aux == 1) {
 					v[aux2] = bloco;
 					cont[aux2] = 1;
-					std::cout << aux2 % linhasPorVia << std::endl;
+					cout << aux2 % linhasPorVia << endl;
 					return 0;
 				}
 			}
@@ -615,12 +605,12 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 
 	//LRU
 	else if(subs == 4) {
-		bool jaEsta = false;
+		bool estaCompleta = false;
 
 		for(int i = 0; i < cache->getNumLinhas(); i++) {
 			if(v[i] == bloco) {
-				std::cout << "HIT: Via: " << i / linhasPorVia << " - Linha: " << i % linhasPorVia << std::endl;
-				jaEsta = true;
+				cout << "HIT: Via: " << i / linhasPorVia << " - Linha: " << i % linhasPorVia << endl;
+				estaCompleta = true;
 
 				time_t rawtime1;
 			    struct tm* timeinfo;
@@ -638,8 +628,8 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 			}
 		}
 
-		if(!jaEsta) {
-			std::cout << "MISS -> alocado na via: " << via << " - Linha: ";
+		if(!estaCompleta) {
+			cout << "MISS -> alocado na via: " << via << " - Linha: ";
 
 			for(int j = via*linhasPorVia; j < ((via*linhasPorVia) + linhasPorVia); j++) {
 				if(v[j] == -1) {
@@ -659,7 +649,7 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 				    min[j] = stoi(buffer1);
 				    seg[j] = stoi(buffer);
 
-					std::cout << j % linhasPorVia << std::endl;
+					cout << j % linhasPorVia << endl;
 
 					if(j == cache->getNumLinhas()-1) cheio = true;
 
@@ -686,7 +676,7 @@ int parcialmenteAssociativo(Cache* cache, int palavra, int* v, int* cont, int* m
 			    min[menor] = stoi(buffer1);
 			    seg[menor] = stoi(buffer);
 
-				std::cout << menor % linhasPorVia << std::endl;
+				cout << menor % linhasPorVia << endl;
 
 				return 0;				
 			}

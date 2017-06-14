@@ -76,12 +76,12 @@ $(OBJ_DIR)/funcoes.o: $(SRC_DIR)/funcoes.cpp $(INC_DIR)/funcoes.h
 
 # Alvo (target) para a geração automatica de documentacao usando o Doxygen.
 # Sempre remove a documentacao anterior (caso exista) e gera uma nova.
-#doxy:
-#	$(RM) $(DOC_DIR)/*
-#	doxygen -g
+doxy:
+	$(RM) $(DOC_DIR)/*
+	doxygen -g
 
-#doc:
-#	doxygen
+doc:
+	doxygen
 
 # Alvo (target) usado para limpar os arquivos temporarios (objeto)
 # gerados durante a compilacao, assim como os arquivos binarios/executaveis.
