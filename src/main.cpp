@@ -11,15 +11,12 @@
 #include "funcoes.h"
 
 /**
- * @brief      Função principal
- *
- * @return     0
+ * @brief Funcao principal
  */
-int main()
-{
+int main(){
 	srand(time(NULL));
 
-	Cache* cache = ler_arquivo("../data/input/config");
+	Cache* cache = lerArquivo("data/input/config");
 
 	int* v = inicializaCache(cache->getNumLinhas());
 

@@ -6,21 +6,18 @@
  * @since 07/06/2017
  * @date  14/06/2017
  */  
-#ifndef FILE_IO_H
-#define FILE_IO_H
+#ifndef FILES_H
+#define FILES_H
 
 #include "cache.h"
 #include <iostream>
 #include <fstream>
 
 /**
- * @brief      Função que lê arquivo e joga numa variável do tipo Cache
- *
- * @param[in]  arq   Arquivo
- *
- * @return     Uma Cache
+ * @brief Funcao que le arquivo e joga numa variavel do tipo Cache
+ * @param file Arquivo
+ * @return Uma Cache
  */
-Cache* ler_arquivo(std::string arq);
-
+Cache* lerArquivo(std::string file);
 
 #endif

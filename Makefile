@@ -50,8 +50,8 @@ cache: $(OBJ_DIR)/main.o $(OBJ_DIR)/cache.o $(OBJ_DIR)/files.o $(OBJ_DIR)/funcoe
 	@echo "============="
 	@echo "Ligando o alvo $@"
 	@echo "============="
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
-	@echo "+++ [Executavel 'cache' criado em $(BIN_DIR)] +++"
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@.exe $^
+	@echo "+++ [Executavel 'cache.exe' criado em $(BIN_DIR)] +++"
 	@echo "============="
 
 # Alvo (target) para a construcao do objeto main.o
