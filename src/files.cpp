@@ -1,10 +1,10 @@
 /**
- * @file  files.cpp
- * @brief Codigo fonte com a implementacao de funcoes para leitura do 
-          arquivo com os dados de entrada
- * @author  Bianca Santiago (bianca.santiago72@gmail.com)
- * @since 07/06/2017
- * @date  14/06/2017
+ * @file   files.cpp
+ * @brief  Codigo fonte com a implementacao de funcoes para leitura do 
+            arquivo com os dados de entrada
+ * @author Bianca Santiago (bianca.santiago72@gmail.com)
+ * @since  07/06/2017
+ * @date   14/06/2017
  */   
 #include "files.h"
 

@@ -1,16 +1,20 @@
 /**
- * @file  funcoes.h
- * @brief Arquivo cabecalho com a definicao de funcoes de 
+ * @file   funcoes.h
+ * @brief  Arquivo cabecalho com a definicao de funcoes de 
  			um simulador cache
- * @author  Bianca Santiago (bianca.santiago72@gmail.com)
- * @since 07/06/2017
- * @date  14/06/2017
+ * @author Bianca Santiago (bianca.santiago72@gmail.com)
+ * @since  07/06/2017
+ * @date   14/06/2017
  */ 	
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
 #include "cache.h"
 #include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
+using std::stoi;
 
 /**
  * @brief      Inicializa Cache
@@ -25,7 +29,7 @@ int* inicializaCache(int tamanho);
  * @param      c      Ponteiro
  * @return     O maior valor
  */
-int calculaMaior(Cache* cache, int* c);
+int calculaMaiorDiretoTotalmenteAssociativo(Cache* cache, int* c);
 
 /**
  * @brief      Calcula o maior valor dentro de um ponteiro se for Mapeamento Parcialmente associativo
@@ -33,7 +37,7 @@ int calculaMaior(Cache* cache, int* c);
  * @param      c      Ponteiro
  * @return     O maior valor
  */
-int calculaMaior2(Cache* cache, int* c, int inicioBusca);
+int calculaMaiorcalculaMaiorParcialmenteAssociativo(Cache* cache, int* c, int inicioBusca);
 
 /**
  * @brief      Calcula o menor valor dentro de um ponteiro
@@ -41,7 +45,7 @@ int calculaMaior2(Cache* cache, int* c, int inicioBusca);
  * @param      c      Ponteiro
  * @return     O menor valor
  */
-int calculaMenor(Cache* cache, int* c);
+int calculaMenorDiretoTotalmenteAssociativo(Cache* cache, int* c);
 
 /**
  * @brief      Calcula o menor valor dentro de um ponteiro se for mapeamento parcialmente associativo
@@ -49,7 +53,7 @@ int calculaMenor(Cache* cache, int* c);
  * @param      c      Ponteiro
  * @return     O menor valor
  */
-int calculaMenor2(Cache* cache, int* c, int inicioBusca);
+int calculaMenorParcialmenteAssociativo(Cache* cache, int* c, int inicioBusca);
 
 /**
  * @brief      Calcula a menor hora dentro de um ponteiro se for Mapeamento Totalmente Associativo
@@ -58,7 +62,7 @@ int calculaMenor2(Cache* cache, int* c, int inicioBusca);
  * @param      d      Ponteiro de segundos
  * @return     O local aonde está o menor horário ou horário mais velho
  */
-int calculaMenorHora(Cache* cache, int* c, int* d);
+int calculaMenorHoraTotalmenteAssociativo(Cache* cache, int* c, int* d);
 
 /**
  * @brief      Calcula a menor hora dentro de um ponteiro se for Mapeamento Parcialmente Associativo
@@ -67,21 +71,21 @@ int calculaMenorHora(Cache* cache, int* c, int* d);
  * @param      d      Ponteiro de segundos
  * @return     O local aonde está o menor horário ou horário mais velho
  */
-int calculaMenorHora2(Cache* cache, int* c, int* d, int inicioBusca);
+int calculaMenorHoraParcialmenteAssociativo(Cache* cache, int* c, int* d, int inicioBusca);
 
 /**
  * @brief      Printa a Cache se for Mapeamento direto ou Totalmente Associativo
  * @param      cache  The cache
  * @param      v      Ponteiro da cache
  */
-void showDiretoTotalmente(Cache* cache, int* v, int* conteudo);
+void mostraDiretoTotalmenteAssociativo(Cache* cache, int* v, int* conteudo);
 
 /**
  * @brief      Printa a Cache se for Mapeamento Parcialmente associativo
  * @param      cache  The cache
  * @param      v      Ponteiro da cache
  */
-void showParcialmente(Cache* cache, int* v, int* conteudo);
+void mostraParcialmenteAssociativo(Cache* cache, int* v, int* conteudo);
 
 /**
  * @brief      Mapeamento direto

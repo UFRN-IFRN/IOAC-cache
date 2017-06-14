@@ -1,88 +1,90 @@
 /**
- * @file 	   cache.h
- * @brief      Definição da classe Cache
- * @author     Bruno Matheus de Lima Cabral
+ * @file	cache.cpp
+ * @brief	Arquivo cabecalho com a implementacao de um simulador cache
+ * @author	Bianca Santiago (bianca.santiago72@gmail.com)
+ * @since	07/06/2017
+ * @date	14/06/2017
  */
 #ifndef CACHE_H
 #define CACHE_H
 
 /**
- * @class 	   Cache
- * @brief      Classe para Cache.
+ * @class Cache
+ * @brief Classe para Cache.
  */
-class Cache
-{
+class Cache {
 	private:
+
 		/**
-		 * Quantas palavras cabem no bloco
+		 * Tamanho do bloco
 		 */
 		int tamBloco;
+		
 		/**
-		 * Número de linhas na Cache
+		 * Numero de linhas na Cache
 		 */
 		int numLinhas;
+		
 		/**
-		 * Números de blocos na memória
+		 * Numeros de blocos na memoria
 		 */
 		int numBlocos;
+
 		/**
-		 * Mapeamento(direto, totalmente e parcialmente associativo)
+		 * Tipo de mapeamento(direto, totalmente associativo ou parcialmente associativo)
 		 */
 		int mapeamento;
+
 		/**
-		 * Número de conjuntos se for parcialmente associativo
+		 * Numero de conjuntos  (se for mapeamento parcialmente associativo)
 		 */
 		int numConjuntos;
+
 		/**
-		 * ALEATORIO, FIFO, LFU OU LRU
+		 * tipo de politica de substituicao (aleatorio, fifo, lfu ou lru)
 		 */
 		int politicaSubs;
 
 	public:
+
 		/**
 		 * @brief      Construtor
 		 */	
 		Cache(int tamBloco, int numLinhas, int numBlocos, int mapeamento, int numConjuntos, int politicaSubs);
 
 		/**
-		 * @brief      Gets o tamanho do bloco.
-		 *
-		 * @return     The tamanho do bloco.
+		 * @brief Pega o tamanho do bloco.
+		 * @return Tamanho do bloco.
 		 */
 		int getTamBloco();
 
 		/**
-		 * @brief      Gets the number linhas.
-		 *
-		 * @return     The number of linhas.
+		 * @brief Pega o numero de linhas.
+		 * @return Numero de linhas.
 		 */
 		int getNumLinhas();
 
 		/**
-		 * @brief      Gets the number blocos.
-		 *
-		 * @return     The number of blocos.
+		 * @brief Pega o numero de blocos.
+		 * @return O numero de blocos.
 		 */
 		int getNumBlocos();
 
 		/**
-		 * @brief      Gets o mapeamento.
-		 *
-		 * @return     The mapeamento.
+		 * @brief Pega o mapeamento.
+		 * @return Mapeamento.
 		 */
 		int getMapeamento();
 
 		/**
-		 * @brief      Gets the number conjuntos.
-		 *
-		 * @return     The number of conjuntos.
+		 * @brief Pega o numero de conjuntos.
+		 * @return Numero de conjuntos.
 		 */
 		int getNumConjuntos();
 
 		/**
-		 * @brief      Gets the politica subs.
-		 *
-		 * @return     The politica subs.
+		 * @brief Pega a politica substituicao.
+		 * @return Politica de substituicao.
 		 */
 		int getPoliticaSubs();
 };
